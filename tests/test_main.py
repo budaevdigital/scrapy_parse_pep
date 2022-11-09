@@ -16,7 +16,7 @@ except ModuleNotFoundError:
 
 def test_run_scrapy(monkeypatch, tmp_path):
     mock_base_dir = Path(os.path.relpath(tmp_path))
-    monkeypatch.setattr(pipelines, 'BASE_DIR', mock_base_dir)
+    monkeypatch.setattr(pipelines, "BASE_DIR", mock_base_dir)
 
     process = CrawlerProcess(settings={
         'LOG_ENABLED': False,
@@ -49,7 +49,7 @@ def test_run_scrapy(monkeypatch, tmp_path):
         'вывода в файл результатов.'
     )
     assert len(output_files) == 2, (
-        'Убедитесь, что создано два csv-файла с результами парсинга'
+        'Убедитесь, что созданы два csv-файла с результами парсинга'
     )
     assert any('pep_' in str(file) for file in output_files), (
         'Убедитесь, что список PEP сохраняется в файл с префиксом `pep_`'
